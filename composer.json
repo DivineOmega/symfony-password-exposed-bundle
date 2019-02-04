@@ -3,7 +3,7 @@
     "description": "Symfony bundle that checks if a password has been exposed in a data breach",
     "type": "library",
     "require": {
-        "divineomega/password_exposed": "dev-master",
+        "divineomega/password_exposed": "dev-master"
     },
     "license": "LGPL-3.0-only",
     "authors": [
