@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    DivineOmega\PasswordExposed\PasswordExposedCheckerInterface: '@DivineOmega\PasswordExposed\PasswordExposedChecker'
+    DivineOmega\PasswordExposed\PasswordExposedChecker: ~
+
+    DivineOmega\PasswordExposed\Symfony\Validator\Constraints\PasswordExposedValidator: ~
