@@ -31,7 +31,7 @@ class Configuration implements ConfigurationInterface
         $rootNode->children()
             ->scalarNode('http_client')->defaultNull()->end()
             ->scalarNode('cache')->defaultValue('cache.app')->cannotBeEmpty()->end()
-            ->scalarNode('cache_lifetime')->defaultNull()->cannotBeEmpty()->end()
+            ->scalarNode('cache_lifetime')->defaultNull()->end()
             ->scalarNode('request_factory')->defaultNull()->end()
             ->scalarNode('uri_factory')->defaultNull()->end()
         ->end();

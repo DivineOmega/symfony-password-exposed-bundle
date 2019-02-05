@@ -2,7 +2,7 @@
 
 namespace DivineOmega\PasswordExposed\Symfony\Validator\Constraints;
 
-use DivineOmega\PasswordExposed\PasswordExposedCheckerInterface;
+use DivineOmega\PasswordExposed\Interfaces\PasswordExposedCheckerInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
@@ -19,6 +19,14 @@ class PasswordExposedValidator extends ConstraintValidator
 
     /** @var PasswordExposedCheckerInterface */
     protected $passwordExposedChecker;
+
+    /**
+     * @param PasswordExposedCheckerInterface $passwordExposedChecker
+     */
+    public function __construct(PasswordExposedCheckerInterface $passwordExposedChecker)
+    {
+        $this->passwordExposedChecker = $passwordExposedChecker;
+    }
 
     /**
      * @inheritdoc

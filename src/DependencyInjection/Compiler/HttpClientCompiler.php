@@ -2,7 +2,7 @@
 
 namespace DivineOmega\PasswordExposed\Symfony\DependencyInjection\Compiler;
 
-use DivineOmega\PasswordExposed\PasswordExposedCheckerInterface;
+use DivineOmega\PasswordExposed\Interfaces\PasswordExposedCheckerInterface;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
@@ -30,18 +30,18 @@ class HttpClientCompiler implements CompilerPassInterface
         $uriFactory = $container->getParameter('password_exposed.uri_factory');
 
         if ($httpClient !== null) {
-            $definition->setArgument(1, new Reference($httpClient));
+            $definition->setArgument(0, new Reference($httpClient));
         }
 
-        $definition->setArgument(2, new Reference($cache));
+        $definition->setArgument(1, new Reference($cache));
         if ($cacheLifetime !== null) {
-            $definition->setArgument(3, $cacheLifetime);
+            $definition->setArgument(2, $cacheLifetime);
         }
         if ($requestFactory !== null) {
-            $definition->setArgument(4, new Reference($requestFactory));
+            $definition->setArgument(3, new Reference($requestFactory));
         }
         if ($uriFactory !== null) {
-            $definition->setArgument(5, new Reference($uriFactory));
+            $definition->setArgument(4, new Reference($uriFactory));
         }
     }
 }

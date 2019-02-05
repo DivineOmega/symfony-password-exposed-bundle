@@ -4,7 +4,7 @@ services:
         autoconfigure: true
         public: false
 
-    DivineOmega\PasswordExposed\PasswordExposedCheckerInterface: '@DivineOmega\PasswordExposed\PasswordExposedChecker'
+    DivineOmega\PasswordExposed\Interfaces\PasswordExposedCheckerInterface: '@DivineOmega\PasswordExposed\PasswordExposedChecker'
     DivineOmega\PasswordExposed\PasswordExposedChecker: ~
 
     DivineOmega\PasswordExposed\Symfony\Validator\Constraints\PasswordExposedValidator: ~
