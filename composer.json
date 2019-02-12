@@ -36,6 +36,8 @@
         "symfony/config": "^3.4|^4.0",
         "symfony/yaml": "^3.4|^4.0",
         "symfony/validator": "^3.4|^4.0",
+        "symfony/translation": "^3.4|^4.0",
+        "symfony/contracts ": "^1.0",
 
         "divineomega/password_exposed": "^3.0"
     },

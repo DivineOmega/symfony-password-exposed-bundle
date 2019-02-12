@@ -14,5 +14,5 @@ class PasswordExposed extends Constraint
 {
 
     /** @var string */
-    public $message = 'Password has been exposed in a data breach. You can\'t use this one.';
+    public $message = 'password_breached';
 }
