@@ -7,7 +7,6 @@ use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use function is_string;
 
 /**
  * Class PasswordExposedValidator
