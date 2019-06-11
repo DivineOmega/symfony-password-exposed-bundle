@@ -17,6 +17,9 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class PasswordExposedValidator extends ConstraintValidator
 {
 
+    /** @var bool */
+    protected $enable;
+
     /** @var PasswordExposedCheckerInterface */
     protected $passwordExposedChecker;
 
@@ -24,11 +27,13 @@ class PasswordExposedValidator extends ConstraintValidator
     protected $translator;
 
     /**
+     * @param bool                            $enable
      * @param PasswordExposedCheckerInterface $passwordExposedChecker
      * @param TranslatorInterface             $translator
      */
-    public function __construct(PasswordExposedCheckerInterface $passwordExposedChecker, TranslatorInterface $translator)
+    public function __construct(bool $enable, PasswordExposedCheckerInterface $passwordExposedChecker, TranslatorInterface $translator)
     {
+        $this->enable = $enable;
         $this->passwordExposedChecker = $passwordExposedChecker;
         $this->translator = $translator;
     }
@@ -36,8 +41,12 @@ class PasswordExposedValidator extends ConstraintValidator
     /**
      * @inheritdoc
      */
-    public function validate($value, Constraint $constraint)
+    public function validate($value, Constraint $constraint): void
     {
+        if ($this->enable === false) {
+            return;
+        }
+
         if (!$constraint instanceof PasswordExposed) {
             throw new UnexpectedTypeException($constraint, PasswordExposed::class);
         }

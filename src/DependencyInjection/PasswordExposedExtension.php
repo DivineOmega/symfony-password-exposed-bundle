@@ -19,12 +19,13 @@ class PasswordExposedExtension extends ConfigurableExtension
     /**
      * @inheritdoc
      */
-    public function loadInternal(array $config, ContainerBuilder $container)
+    public function loadInternal(array $config, ContainerBuilder $container): void
     {
         $locator = new FileLocator(__DIR__.'/../Resources/config');
         $loader = new Loader\YamlFileLoader($container, $locator);
         $loader->load('services.yml');
 
+        $container->setParameter('password_exposed.enable', $config['enable']);
         $container->setParameter('password_exposed.http_client', $config['http_client']);
         $container->setParameter('password_exposed.cache', $config['cache']);
         $container->setParameter('password_exposed.cache_lifetime', $config['cache_lifetime']);

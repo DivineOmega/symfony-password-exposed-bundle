@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     /**
      * @inheritDoc
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('password_exposed');
         if (method_exists($treeBuilder, 'getRootNode')) {
@@ -29,6 +29,7 @@ class Configuration implements ConfigurationInterface
         }
 
         $rootNode->children()
+            ->booleanNode('enable')->defaultTrue()->end()
             ->scalarNode('http_client')->defaultNull()->end()
             ->scalarNode('cache')->defaultValue('cache.app')->cannotBeEmpty()->end()
             ->scalarNode('cache_lifetime')->defaultNull()->end()
