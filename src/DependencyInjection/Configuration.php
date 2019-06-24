@@ -32,10 +32,10 @@ class Configuration implements ConfigurationInterface
             ->booleanNode('enable')->defaultTrue()->end()
             ->scalarNode('http_client')->defaultNull()->end()
             ->scalarNode('cache')->defaultValue('cache.app')->cannotBeEmpty()->end()
-            ->scalarNode('cache_lifetime')->defaultNull()->end()
+            ->scalarNode('cache_lifetime')->defaultValue(2592000)->end()
             ->scalarNode('request_factory')->defaultNull()->end()
             ->scalarNode('uri_factory')->defaultNull()->end()
-        ->end();
+            ->end();
 
         return $treeBuilder;
     }
